@@ -24,7 +24,7 @@ export ZSH_THEME="dpoggi"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git debian git-flow deb node npm phing svn)
+plugins=(git debian git-flow deb node npm phing svn django pip python virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
