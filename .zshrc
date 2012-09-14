@@ -8,6 +8,10 @@ ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="dpoggi"
 alias ..="cd .."
 alias ngre="sudo /etc/init.d/nginx reload"
+alias s="sudo"
+alias g="git"
+alias gci="git commit && git push"
+alias gco="git pull"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
