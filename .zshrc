@@ -29,6 +29,6 @@ alias s="sudo"
 plugins=(git debian git-flow deb node npm phing svn symfony2 django pip python virtualenvwrapper cap)
 
 source $ZSH/oh-my-zsh.sh
-
+unsetopt sharehistory
 # Customize to your needs...
 export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
