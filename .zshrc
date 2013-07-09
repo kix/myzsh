@@ -32,3 +32,9 @@ source $ZSH/oh-my-zsh.sh
 unsetopt sharehistory
 # Customize to your needs...
 export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+preexec () {
+  DATE=`date +"%Y-%m-%d %H:%M:%S"`
+  C=$(($COLUMNS-25))
+  echo -e "%{$fg[cyan]%})\033[1A\033[${C}C ${DATE}"
+}
