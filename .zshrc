@@ -1,14 +1,16 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
+source ~/.profile
+ #Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 export ZSH_THEME="dpoggi"
+
+alias tailf="tail -f"
 alias ..="cd .."
-alias ngre="sudo /etc/init.d/nginx reload"
 alias s="sudo"
+alias git='nocorrect git'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -26,15 +28,18 @@ alias s="sudo"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git debian git-flow deb node npm phing svn symfony2 django pip python virtualenvwrapper cap)
+plugins=(git git-flow node python symfony2 composer brew capistrano npm osx)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt sharehistory
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/share/npm/bin:$HOME/local/node/:$usr/local/heroku/bin:$PATH:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$(cd $(which gem)/..; pwd):$PATH
 
 preexec () {
   DATE=`date +"%Y-%m-%d %H:%M:%S"`
-  C=$(($COLUMNS-25))
-  echo -e "%{$fg[cyan]%})\033[1A\033[${C}C ${DATE}"
+  C=$(($COLUMNS-21))
+  echo -e "$fg[cyan]\033[1A\033[${C}C $DATE $reset_color"
 }
