@@ -33,7 +33,7 @@ plugins=(git git-flow node python symfony2 composer brew capistrano npm osx)
 source $ZSH/oh-my-zsh.sh
 unsetopt sharehistory
 # Customize to your needs...
-export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/share/npm/bin:$HOME/local/node/:$usr/local/heroku/bin:$PATH:$PATH"
+export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/share/npm/bin:$PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$(cd $(which gem)/..; pwd):$PATH
@@ -43,3 +43,15 @@ preexec () {
   C=$(($COLUMNS-21))
   echo -e "$fg[cyan]\033[1A\033[${C}C $DATE $reset_color"
 }
+
+autoload regexp-replace
+autoload replace-string
+
+zle -N replace-regex replace-string
+
+bindkey '[D' emacs-backward-word
+bindkey '[C' emacs-forward-word
+bindkey '[B' replace-regex
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/share/npm/bin:$HOME/local/node/:$usr/local/heroku/bin:$PATH"
