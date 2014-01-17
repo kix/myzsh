@@ -1,16 +1,22 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+export PHPBREW_SET_PROMPT=1
+. `brew --prefix`/etc/profile.d/z.sh
 source ~/.profile
- #Set name of the theme to load.
+source /Users/kix/.phpbrew/bashrc
+#Set name of the theme to load.
+
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 export ZSH_THEME="dpoggi"
 
+alias pc="pygmentize"
 alias tailf="tail -f"
 alias ..="cd .."
 alias s="sudo"
 alias git='nocorrect git'
+alias server='open http://localserver.dev:8000 && sleep 1 && php -S localserver.dev:8000 -t ./'
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -28,14 +34,13 @@ alias git='nocorrect git'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow node python symfony2 composer brew capistrano npm osx)
+plugins=(svn git git-flow node python symfony2 composer brew capistrano npm osx)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt sharehistory
 # Customize to your needs...
 export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/share/npm/bin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$(cd $(which gem)/..; pwd):$PATH
 
 preexec () {
@@ -54,4 +59,6 @@ bindkey '[C' emacs-forward-word
 bindkey '[B' replace-regex
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/share/npm/bin:$HOME/local/node/:$usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$HOME/local/node:$usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
